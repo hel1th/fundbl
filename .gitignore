@@ -1,5 +1,9 @@
 # Prerequisites
 *.d
+.cache/
+.vscode/
+.idea/
+doc
 
 # Object files
 *.o
