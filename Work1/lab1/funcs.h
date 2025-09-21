@@ -4,7 +4,7 @@
 #include <stddef.h>
 
 typedef enum {
-  CONTAINS_NOT_DIGITS,
+  NUMBER_CONTAINS_NOT_DIGITS,
   NUMBER_OVERFLOW,
   NOT_POSITIVE_NUMBER,
   NUMBER_OK

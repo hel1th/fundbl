@@ -30,7 +30,7 @@ NumberValidateStatus validateNumber(const char *numberStr, int *number) {
     return NUMBER_OVERFLOW;
   }
   if (*endptr != '\0') {
-    return CONTAINS_NOT_DIGITS;
+    return NUMBER_CONTAINS_NOT_DIGITS;
   }
   if (num <= 0) {
     return NOT_POSITIVE_NUMBER;

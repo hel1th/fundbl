@@ -23,7 +23,7 @@ int main(int argc, const char **argv) {
   switch (numberStatus) {
   case NUMBER_OK:
     break;
-  case CONTAINS_NOT_DIGITS:
+  case NUMBER_CONTAINS_NOT_DIGITS:
     printf("First argument contains non-digits: %s\n", argv[1]);
     return INVALID_INPUT;
   case NUMBER_OVERFLOW:
