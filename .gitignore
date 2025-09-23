@@ -4,7 +4,7 @@
 .vscode/
 .idea/
 doc
-
+Makefile
 # Object files
 *.o
 *.ko
