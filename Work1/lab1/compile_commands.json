@@ -1,7 +1,0 @@
-[
-    {
-        "directory": "C:/MAI/3sem/Funda/Work1/lab1",
-        "command": "C:/msys64/ucrt64/bin/clang.exe -std=c11 -Wall -g -o main.exe main.c",
-        "file": "main.c"
-    }
-]
