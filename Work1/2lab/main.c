@@ -12,7 +12,7 @@ typedef enum ReturnCode {
 int main() {
   char numStr[31];
   int num = 0, maxN0 = 0;
-  printf("Enter amount of lines to input:");
+  printf("Enter amount of lines to input: ");
   fgets(numStr, 30, stdin);
 
   NumberValidateStatus numberStatus = validateNumber(numStr, &num);

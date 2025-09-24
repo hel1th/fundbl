@@ -23,12 +23,8 @@ FlagParseStatus parseFlag(const char *arg, const char *allowedFlags,
 
 NumberValidateStatus validateNumber(const char *numberStr, int *number) {
   char *endptr;
-  errno = 0;
   long num = strtol(numberStr, &endptr, 10);
 
-  if (errno == ERANGE) {
-    return NUMBER_OVERFLOW;
-  }
   if (*endptr != '\0') {
     return NUMBER_CONTAINS_NOT_DIGITS;
   }
