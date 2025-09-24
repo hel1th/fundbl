@@ -1,4 +1,5 @@
 #include "funcs.h"
+#include <errno.h>
 #include <limits.h>
 #include <stdlib.h>
 
@@ -40,7 +41,7 @@ NumberValidateStatus validateNumber(const char *numberStr, int *number) {
   long num = strtol(numberStr, &endptr, 10);
 
   if (*endptr != '\0' && *endptr != '\n') {
-    return CONTAINS_NOT_DIGITS;
+    return NUMBER_CONTAINS_NOT_DIGITS;
   }
   if (num <= 0) {
     return NOT_POSITIVE_NUMBER;

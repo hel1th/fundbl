@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
-
+.cache/
+.vscode/
+.idea/
+doc
+Makefile
 # Object files
 *.o
 *.ko
