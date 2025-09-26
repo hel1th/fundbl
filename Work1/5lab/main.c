@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#define closeAll                                                               \
+  fclose(fileIn);                                                              \
+  fclose(fileOut)
+
 typedef enum returnCode {
   OK,
   INPUT_ERR,
@@ -17,6 +21,7 @@ int main(int argc, const char **argv) {
     printf("Not enough args!\n");
     return INPUT_ERR;
   }
+
   const char *rawFlag = argv[1];
   char flag;
   const char *ALLOWED_FLAGS = "disa";
@@ -36,8 +41,8 @@ int main(int argc, const char **argv) {
       printf("<program> -n<flag> <fileInput> <fileOutput>\n");
       return INPUT_ERR;
     }
-    if (strlen(argv[3]) > 251) {
-      printf("Filename is too long! Must be under 251 chars\n");
+    if (strlen(argv[3]) > 254) {
+      printf("Filename is too long! Must be under 254 chars\n");
       return FILENAME_ERR;
     }
     strcpy(fileOutName, argv[3]);
@@ -48,8 +53,8 @@ int main(int argc, const char **argv) {
       return INPUT_ERR;
     }
     strcpy(fileOutName, "out_");
-    if (strlen(argv[2]) > 251) {
-      printf("Filename is too long! Must be under 251 chars\n");
+    if (strlen(argv[2]) > 250) {
+      printf("Filename is too long! Must be under 250 chars\n");
       return FILENAME_ERR;
     }
     strcat(fileOutName, argv[2]);
@@ -69,6 +74,9 @@ int main(int argc, const char **argv) {
   }
 
   StatusRemove statusRemoveNums;
+  StatusAlpha statusCountLetters;
+  StatusSpecial statusCountSpecials;
+  StatusReplace statusReplace;
   switch (flag) {
   case 'd':
     statusRemoveNums = removeArabicNums(fileIn, fileOut);
@@ -76,8 +84,7 @@ int main(int argc, const char **argv) {
     case REMOVE_FILEOUT_ERR:
       printf("Something went wrong during writing to output file \"%s\"\n",
              fileOutName);
-      fclose(fileIn);
-      fclose(fileOut);
+      closeAll;
       return FILE_WRITE_ERR;
     case REMOVE_OK:
       printf("Arabic numerals successufully removed from \"%s\"\n", fileInName);
@@ -85,13 +92,50 @@ int main(int argc, const char **argv) {
     }
     break;
   case 'i':
+    statusCountLetters = countAlphaChars(fileIn, fileOut);
+    switch (statusCountLetters) {
+    case ALPHA_FILEOUT_ERR:
+      printf("Something went wrong during writing to output file \"%s\"\n",
+             fileOutName);
+      closeAll;
+      return FILE_WRITE_ERR;
+    case ALPHA_OK:
+      printf("Letters was successfully counted from \"%s\"\n", fileInName);
+      printf("Output file is: %s\n", fileOutName);
+    }
     break;
   case 's':
+    statusCountSpecials = countSpecialChars(fileIn, fileOut);
+    switch (statusCountSpecials) {
+    case SPECIAL_FILEOUT_ERR:
+      printf("Something went wrong during writing to output file \"%s\"\n",
+             fileOutName);
+      closeAll;
+      return FILE_WRITE_ERR;
+    case SPECIAL_OK:
+      printf("Special chars was successfully counted from \"%s\"\n",
+             fileInName);
+      printf("Output file is: %s\n", fileOutName);
+      break;
+    }
     break;
   case 'a':
+    statusReplace = replaceWithHex(fileIn, fileOut);
+    switch (statusReplace) {
+    case REPLACE_FAULT:
+      printf("Something went wrong during writing to output file \"%s\"\n",
+             fileOutName);
+      closeAll;
+      return FILE_WRITE_ERR;
+    case REPLACE_OK:
+      printf("Special chars was successfully replaced from \"%s\"\n",
+             fileInName);
+      printf("Output file is: %s\n", fileOutName);
+      break;
+    }
+
     break;
   }
-  fclose(fileIn);
-  fclose(fileOut);
+  closeAll;
   return OK;
 }

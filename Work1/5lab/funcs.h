@@ -12,3 +12,26 @@ typedef enum {
   REMOVE_FILEOUT_ERR,
 } StatusRemove;
 StatusRemove removeArabicNums(FILE *fileIn, FILE *fileOut);
+
+typedef enum {
+  ALPHA_OK,
+  ALPHA_FILEOUT_ERR,
+} StatusAlpha;
+StatusAlpha countAlphaChars(FILE *fileIn, FILE *fileOut);
+
+typedef enum {
+  SPECIAL_OK,
+  SPECIAL_FILEOUT_ERR,
+} StatusSpecial;
+StatusSpecial countSpecialChars(FILE *fileIn, FILE *fileOut);
+
+typedef enum {
+  HEX_OK,
+  HEX_OVERFLOW,
+} StatusHex;
+StatusHex charToHex(const char ch, char *res);
+typedef enum {
+  REPLACE_OK,
+  REPLACE_FAULT,
+} StatusReplace;
+StatusReplace replaceWithHex(FILE *fileIn, FILE *fileOut);
