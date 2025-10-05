@@ -18,7 +18,7 @@ FlagParseStatus parseFlag(const char *arg, const char *allowedFlags, char *flag,
       break;
     }
     return FLAG_UNKNOWN;
-    break;
+
   default:
     return FLAG_UNKNOWN;
   }
@@ -122,11 +122,6 @@ StatusSpecial countSpecialChars(FILE *fileIn, FILE *fileOut) {
         return SPECIAL_FILEOUT_ERR;
       }
     }
-
-    // if (feof(fileIn)) {
-    //   printf("lol it works");
-    //   break;
-    // }
   }
   return SPECIAL_OK;
 }

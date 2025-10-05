@@ -3,7 +3,6 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 FlagParseStatus parseFlag(const char *arg, const char *allowedFlags,

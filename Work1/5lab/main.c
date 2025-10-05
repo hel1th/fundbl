@@ -27,6 +27,7 @@ int main(int argc, const char **argv) {
   const char *ALLOWED_FLAGS = "disa";
   char const *fileInName = argv[2];
   char fileOutName[255];
+  const char prefix[] = "out_";
   bool isOutputNameGiven = false;
   FlagParseStatus flagStatus =
       parseFlag(argv[1], ALLOWED_FLAGS, &flag, &isOutputNameGiven);
@@ -41,7 +42,7 @@ int main(int argc, const char **argv) {
       printf("<program> -n<flag> <fileInput> <fileOutput>\n");
       return INPUT_ERR;
     }
-    if (strlen(argv[3]) > 254) {
+    if (strlen(argv[3]) > strlen(fileOutName) - 1) {
       printf("Filename is too long! Must be under 254 chars\n");
       return FILENAME_ERR;
     }
@@ -52,8 +53,8 @@ int main(int argc, const char **argv) {
       printf("<program> -<flag> <fileInput>\n");
       return INPUT_ERR;
     }
-    strcpy(fileOutName, "out_");
-    if (strlen(argv[2]) > 250) {
+    strcpy(fileOutName, prefix);
+    if (strlen(argv[2]) > strlen(fileOutName) - strlen(prefix) - 1) {
       printf("Filename is too long! Must be under 250 chars\n");
       return FILENAME_ERR;
     }

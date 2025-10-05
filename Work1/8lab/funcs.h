@@ -2,13 +2,12 @@
 #include <stdio.h>
 
 void printOpenErr(const char *file);
-typedef long long ll;
 
 typedef struct {
   char *numStrBase;
   bool isNeg;
   char *noLead0;
-  ll numRes10;
+  long long numRes10;
 } numCont;
 
 typedef enum {
@@ -27,4 +26,4 @@ typedef enum {
   BASE_N_OVERFLOW,
   BASE_N_OUT_OF_RANGE,
 } StatusConvertN;
-StatusConvertN convertToBaseN(const ll num, int toBase, char *resStr);
+StatusConvertN convertToBaseN(const numCont *maxN, int toBase, char *resStr);

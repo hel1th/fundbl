@@ -1,5 +1,4 @@
 #include <stdbool.h>
-
 typedef enum {
   NUMBER_CONTAINS_NOT_DIGITS,
   NUMBER_OVERFLOW,
@@ -12,10 +11,19 @@ NumberValidateStatus validateFloatNumber(const char *numberStr, double *number);
 typedef enum { FLAG_UNKNOWN, FLAG_NOT_FOUND, FLAG_OK } FlagParseStatus;
 FlagParseStatus parseFlag(const char *arg, const char *allowedFlags,
                           char *flag);
-typedef enum { EQ_OK = 0, EQ_EPS_ZERO, EQ_FAULT } StatusEquation;
+typedef enum {
+  EQ_OK,
+  EQ_EPS_ZERO,
+  EQ_FAULT,
+} StatusEquation;
 
-typedef enum { TWO_ROOTS, ONE_ROOT, NO_ROOTS, INFINITY_ROOTS } SqrEqType;
-typedef struct  {
+typedef enum {
+  TWO_ROOTS,
+  ONE_ROOT,
+  NO_ROOTS,
+  INFINITY_ROOTS,
+} SqrEqType;
+typedef struct {
   double a, b, c;
   double x1, x2;
   SqrEqType type;
