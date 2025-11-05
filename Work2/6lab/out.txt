@@ -1,0 +1,19 @@
+ID | Name               | Surname            | Group | Marks     | Avg 
+---+--------------------+--------------------+-------+-----------+-----
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80
+ 3 | Alan               | Turing             |     A | 5 5 4 5 5 | 4.80

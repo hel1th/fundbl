@@ -76,7 +76,7 @@ void solveEq(double eps, double a, double b, double c, EqSol *solve) {
     solve->x1 = 0;
     solve->x2 = 0;
     return;
-  }
+}
   if (fabs(D) < eps) {
     solve->type = ONE_ROOT;
     solve->x1 = -b / (2 * a);

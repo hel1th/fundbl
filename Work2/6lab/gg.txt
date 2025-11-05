@@ -1,0 +1,27 @@
+1 Ivan "The Legend" Ivanov group:A | Marks: 5 5 5 5 5
+2 Maria "GPA Queen" Smirnova group:B | Marks: A A A A A
+3 Dmitry "Edge Case" Kuznetsov group:A | Marks: 3 B F 4 D
+4 Anna "Overflow" Popova group:C | Marks: 255 255 255 255 255
+5 Alexey "Zero Hero" Volkov group:B | Marks: 0 0 0 0 0
+6 Ekaterina "Chaos" Fedorova group:A | Marks: ! @ # $ %
+7 Sergei "Whitespace" Morozov group:C | Marks:     3     4     2     5     1    
+8 Olga "Signed Trap" Pavlova group:B | Marks: -1 -2 -3 -4 -5
+9 Andrey "Emoji" Sokolov group:A | Marks: 🔥 ❤️ ⭐ 💯 🏆
+10 Natalia "Failed" Lebedeva group:C | Marks: F F F F F
+11 Vladimir "Top G" Rybin group:A | Marks: 5 5 5 5 5
+12 Grok "AI" xAI group:X | Marks: 6 6 6 6 6
+
+cat > stud1.txt << 'EOF'
+1 Ivan "The Legend" Ivanov group:A | Marks: 5 5 5 5 5
+2 Maria "GPA Queen" Smirnova group:B | Marks: A A A A A
+3 Dmitry "Edge Case" Kuznetsov group:A | Marks: 3 B F 4 D
+4 Anna "Overflow" Popova group:C | Marks: 255 255 255 255 255
+5 Alexey "Zero Hero" Volkov group:B | Marks: 0 0 0 0 0
+6 Ekaterina "Chaos" Fedorova group:A | Marks: ! @ # $ %
+7 Sergei "Whitespace" Morozov group:C | Marks:     3     4     2     5     1    
+8 Olga "Signed Trap" Pavlova group:B | Marks: -1 -2 -3 -4 -5
+9 Andrey "Emoji" Sokolov group:A | Marks: 🔥 ❤️ ⭐ 💯 🏆
+10 Natalia "Failed" Lebedeva group:C | Marks: F F F F F
+11 Vladimir "Top G" Rybin group:A | Marks: 5 5 5 5 5
+12 Grok "AI" xAI group:X | Marks: 6 6 6 6 6
+EOF

@@ -1,0 +1,113 @@
+#include "../include/student.h"
+
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define POOL 10
+#define MAX_ITTERATION 1000
+
+ReturnCode scannerStud(FILE* fData, Student* stud) {
+    if (!fData || !stud)
+        return INVALID_INPUT_ERR;
+
+    unsigned char* marks = (unsigned char*)malloc(sizeof(unsigned char) * 5);
+    if (!marks) {
+        return ALLOC_ERR;
+    }
+
+    int res =
+        fscanf(fData, "%zu %49s %49s %49s %c %c %c %c %c", &stud->id, stud->name, stud->surname,
+               stud->group, &marks[0], &marks[1], &marks[2], &marks[3], &marks[4]);
+
+    if (res == EOF) {
+        free(marks);
+        return EOF_REACHED;
+    }
+
+    if (res < 9) {
+        free(marks);
+        return INVALID_INPUT_ERR;
+    }
+
+    stud->marks = marks;
+
+    return OK;
+}
+
+ReturnCode readerStud(FILE* fData, StudentsData** studentsData) {
+    if (!fData || !studentsData)
+        return INVALID_INPUT_ERR;
+
+    StudentsData* stData = malloc(sizeof(StudentsData));
+    if (!stData)
+        return ALLOC_ERR;
+
+    stData->size = 0;
+    stData->capacity = POOL;
+    stData->students = malloc(sizeof(Student*) * stData->capacity);
+    if (!stData->students) {
+        free(stData);
+        return ALLOC_ERR;
+    }
+
+
+    while (1) {
+        Student* stud = malloc(sizeof(Student));
+        if (!stud) {
+            free(stData->students);
+            free(stData);
+
+            return ALLOC_ERR;
+        }
+
+        ReturnCode err = scannerStud(fData, stud);
+        if (err == EOF_REACHED) {
+            free(stud);
+
+            break;
+        }
+
+        if (err != OK) {
+            *studentsData = stData;
+            free(stud);
+            return err;
+        }
+
+
+        if (stData->size >= stData->capacity) {
+            size_t newCap = stData->capacity * 2;
+            Student** tmp = realloc(stData->students, sizeof(Student*) * newCap);
+
+            if (!tmp) {
+                free(stud);
+                *studentsData = stData;
+                return ALLOC_ERR;
+            }
+
+            stData->students = tmp;
+            stData->capacity = newCap;
+        }
+
+        stData->students[stData->size++] = stud;
+    }
+
+    *studentsData = stData;
+
+    return OK;
+}
+
+void freeStudentsData(StudentsData* data) {
+    if (!data)
+        return;
+
+    if (data->students) {
+        for (size_t i = 0; i < data->size; ++i) {
+            free(data->students[i]->marks);
+            free(data->students[i]);
+        }
+        free(data->students);
+    }
+
+    free(data);
+}

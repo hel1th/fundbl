@@ -1,0 +1,14 @@
+Given str: z | original base is 36 | result in base10 = -25
+Given str: 0 | original base is 1 | result in base10 = 0
+Given str: 0 | original base is 1 | result in base10 = 0
+Given str: 76 | original base is 8 | result in base10 = 62
+Given str: 8786 | original base is 9 | result in base10 = 6477
+Given str: 98 | original base is 10 | result in base10 = 98
+Given str: 19 | original base is 10 | result in base10 = 19
+Given str: 1110 | original base is 2 | result in base10 = 14
+Given str: 2 | original base is 3 | result in base10 = 2
+Given str: 0 | original base is 1 | result in base10 = 0
+Given str: 0 | original base is 1 | result in base10 = 0
+Given str: 123213 | original base is 4 | result in base10 = -1767
+Given str: zz | original base is 36 | result in base10 = 925
+Given str: xcfx0x | original base is 34 | result in base10 = 1047910555

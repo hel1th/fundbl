@@ -1,0 +1,11 @@
+1 Ivan Ivanov A A F E 3 5
+2 Maria Smirnova B 4 5 4 5 4
+3 Dmitry Kuznetsov A 3 4 3 4 5
+4 Anna Popova C 5 5 5 5 5
+5 Alexey Volkov B 4 3 4 3 4
+6 Ekaterina Fedorova A 5 4 5 4 3
+7 Sergei Morozov C 3 3 4 4 3
+8 Olga Pavlova B 5 5 4 5 5
+9 Andrey Sokolov A 4 4 3 4 4
+10 Natalia Lebedeva C 2 3 3 4 3
+11 Vladimir Rybin A 5 5 5 5 5
