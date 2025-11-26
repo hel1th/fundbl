@@ -1,6 +1,7 @@
 #include "../include/student.h"
 
 #include <ctype.h>
+#include <limits.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -227,5 +228,19 @@ ReturnCode pushbackStudentsData(StudentsData** studData, Student* st) {
     }
     (*studData)->students[(*studData)->size++] = st;
 
+    return OK;
+}
+
+ReturnCode validateNumber(const char* numberStr, int* number) {
+    char* endptr;
+    long num = strtol(numberStr, &endptr, 10);
+
+    if (*endptr != '\0') {
+        return INVALID_INPUT_ERR;
+    }
+    if (num > INT_MAX) {
+        return OVERFLOW_ERR;
+    }
+    *number = (int)num;
     return OK;
 }

@@ -11,3 +11,4 @@ typedef enum InterChoice {
 } MenuChoice;
 
 void interactiveMode(StudentsData* stData, FILE* output);
+ReturnCode validateNumber(const char* numberStr, int* number);

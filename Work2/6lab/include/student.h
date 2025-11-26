@@ -15,6 +15,7 @@ typedef enum {
     FILE_OPEN_ERR,
     ALLOC_ERR,
     EOF_REACHED,
+    OVERFLOW_ERR
 } ReturnCode;
 
 typedef struct Student_ {
@@ -43,4 +44,5 @@ void usage(void);
 ReturnCode initStudentsData(StudentsData** studData);
 // ReturnCode reallocStudentsData(StudentsData** studData);
 ReturnCode pushbackStudentsData(StudentsData** studData, Student* st);
+ReturnCode validateNumber(const char* numberStr, int* number);
 #endif // STUDENT_H

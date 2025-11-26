@@ -3,38 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// ReturnCode StudSortById(StudentsData* stData) {
-//     if (!stData || stData->size == 0 || !stData->students)
-//         return INVALID_INPUT_ERR;
-
-//     qsort(stData->students, stData->size, sizeof(Student*), StudCmpById);
-
-//     return OK;
-// }
-// ReturnCode StudSortByName(StudentsData* stData) {
-//     if (!stData || stData->size == 0 || !stData->students)
-//         return INVALID_INPUT_ERR;
-
-//     qsort(stData->students, stData->size, sizeof(Student*), StudCmpByName);
-
-//     return OK;
-// }
-// ReturnCode StudSortBySurname(StudentsData* stData) {
-//     if (!stData || stData->size == 0 || !stData->students)
-//         return INVALID_INPUT_ERR;
-
-//     qsort(stData->students, stData->size, sizeof(Student*), StudCmpBySurname);
-
-//     return OK;
-// }
-// ReturnCode StudSortByGroup(StudentsData* stData) {
-//     if (!stData || stData->size == 0 || !stData->students)
-//         return INVALID_INPUT_ERR;
-
-//     qsort(stData->students, stData->size, sizeof(Student*), StudCmpByGroup);
-
-//     return OK;
-// }
 int StudCmpById(const void* a, const void* b) {
     const Student* s1 = *(const Student**)a;
     const Student* s2 = *(const Student**)b;

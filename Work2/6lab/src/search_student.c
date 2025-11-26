@@ -57,9 +57,10 @@ ReturnCode findByChoice(SearchChoice searchBy, StudentsData* stData, StudentsDat
         return INVALID_INPUT_ERR;
     }
     size_t intKey;
+    int idToFind = 0;
     char strKey[NAME_LEN];
 
-
+    int red = 0;
     StudentsData* foundStudents = NULL;
     ReturnCode err = initStudentsData(&foundStudents);
     if (err != OK) {
@@ -69,19 +70,27 @@ ReturnCode findByChoice(SearchChoice searchBy, StudentsData* stData, StudentsDat
 
     switch (searchBy) {
         case SEARCH_ID:
-            printf("Enter the id to find for: ");
-            scanf("%zu", &intKey);
+            char numStr[33] = {[0] = '\0'};
+
+            do {
+
+                idToFind = 0;
+                scanf("%32s", numStr);
+            } while (validateNumber(numStr, &idToFind) != OK);
 
             for (size_t i = 0; i < stData->size; ++i) {
-                if (intKey == stData->students[i]->id) {
+                if (idToFind == stData->students[i]->id) {
                     pushbackStudentsData(&foundStudents, stData->students[i]);
                 }
             }
             break;
 
         case SEARCH_NAME:
-            printf("Enter the name to find for: ");
-            scanf("%49s", strKey);
+            red = 0;
+            while (red != 1) {
+                printf("Enter the name to find for: ");
+                red = scanf("%49s", strKey);
+            }
             for (size_t i = 0; i < stData->size; ++i) {
                 if (strcmp(strKey, stData->students[i]->name) == 0) {
                     pushbackStudentsData(&foundStudents, stData->students[i]);
@@ -90,8 +99,11 @@ ReturnCode findByChoice(SearchChoice searchBy, StudentsData* stData, StudentsDat
             break;
 
         case SEARCH_SURNAME:
-            printf("Enter the surname to find for: ");
-            scanf("%49s", strKey);
+            red = 0;
+            while (red != 1) {
+                printf("Enter the surname to find for: ");
+                red = scanf("%49s", strKey);
+            }
             for (size_t i = 0; i < stData->size; ++i) {
                 if (strcmp(strKey, stData->students[i]->surname) == 0) {
                     pushbackStudentsData(&foundStudents, stData->students[i]);
@@ -100,8 +112,11 @@ ReturnCode findByChoice(SearchChoice searchBy, StudentsData* stData, StudentsDat
             break;
 
         case SEARCH_GROUP:
-            printf("Enter the group to find for: ");
-            scanf("%49s", strKey);
+            red = 0;
+            while (red != 1) {
+                printf("Enter the group to find for: ");
+                red = scanf("%49s", strKey);
+            }
             for (size_t i = 0; i < stData->size; ++i) {
                 if (strcmp(strKey, stData->students[i]->group) == 0) {
                     pushbackStudentsData(&foundStudents, stData->students[i]);

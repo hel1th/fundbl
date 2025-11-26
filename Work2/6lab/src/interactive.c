@@ -4,6 +4,8 @@
 #include "../include/sort_student.h"
 #include "../include/student.h"
 
+#include <ctype.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -40,47 +42,60 @@ void printSearch(void) {
 }
 
 MenuChoice handleMenu(void) {
-
-    MenuChoice choice;
+    char number[33] = {[0] = '\0'};
+    int choice;
     while (1) {
         printMenu();
+        if (scanf("%32s", number) != 1)
+            continue;
 
-        scanf("%d", (int*)&choice);
+        if (validateNumber(number, &choice) != OK) {
+            continue;
+        }
+
         if (choice < EXIT_CHOICE || SHOW_ALL_CHOICE < choice)
             continue;
 
-        return choice;
+        return (MenuChoice)choice;
     }
 }
 
 SearchChoice handleSearch(void) {
-    SearchChoice choice;
-
+    char numberStr[33] = {[0] = '\0'};
+    int choice;
     while (1) {
         printSearch();
+        if (scanf("%32s", numberStr) != 1)
+            continue;
 
-        scanf("%d", (int*)&choice);
-
+        if (validateNumber(numberStr, &choice) != OK) {
+            continue;
+        }
         choice -= 1;
         if (choice < SEARCH_ID || SEARCH_GROUP < choice)
             continue;
 
-        return choice;
+        return (SearchChoice)choice;
     }
 }
 
 SortChoice handleSort(void) {
-    SortChoice choice;
+    char number[33] = {[0] = '\0'};
+    int choice;
     while (1) {
         printSort();
+        if (scanf("%32s", number) != 1)
+            continue;
 
-        scanf("%d", (int*)&choice);
+        if (validateNumber(number, &choice) != OK) {
+            continue;
+        }
 
         choice -= 1;
         if (choice < SORT_ID || SORT_GROUP < choice)
             continue;
 
-        return choice;
+        return (SortChoice)choice;
     }
 }
 
